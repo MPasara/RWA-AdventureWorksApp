@@ -1,0 +1,123 @@
+﻿@model IEnumerable<AdventureWorksApp.Models.Category>
+@{
+    ViewBag.Title = "CategoriesPage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<h2>Categories</h2>
+
+<script>
+    function deleteCategory(idCategory) {
+        if (confirm('Do you really want to delete this category?')) {
+            $.ajax({
+                url: '/Pages/DeleteCategory',
+                type: 'POST',
+                data: { idCategory: idCategory },
+                success: function () {
+                    location.reload();
+                }
+            });
+            return true;
+        }
+        return false;
+    }
+</script>
+
+<script>
+    function addCategory() {
+        if (confirm('Do you really want to add this category?')) {
+            $.ajax({
+                url: '/Pages/AddCategory',
+                type: 'POST',
+                data: {
+                    CategoryName: $("#tbName").val()
+                },
+                success: function () {
+                    location.reload();
+                }
+            });
+            return true;
+        }
+        return false;
+    }
+</script>
+
+<script>
+    function editCategory(idCategory) {
+        if (confirm('Do you really want to edit this category?')) {
+            $.ajax({
+                url: '/Pages/EditCategory',
+                type: 'POST',
+                data: {
+                    CategoryName: $("#tbName").val()
+                },
+                success: function () {
+                    location.reload();
+                }
+            });
+            return true;
+        }
+        return false;
+    }
+</script>
+
+<div class="container">
+    <table class="table table-striped table-hover" style="text-underline-position:right">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Edit</td>
+                <td>Delete</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.IDCategory</td>
+                    <td>@c.CategoryName</td>
+                    <td>
+                        <input type="submit" class="btn btn-primary" value="Edit" onclick="return editCategory(@c.IDCategory)" />
+                    </td>
+                    <td>
+                        <input type="submit" class="btn btn-danger" value="Delete" onclick="return deleteCategory(@c.IDCategory)" />
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@* editing station *@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" name="tbName" @*value="@Model.CategoryName"*@ />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" id="btnSave" onclick="editCategory()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <hr />
+    <h3>Add new Category</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" id="tbName" name="tbName" @*value="@Model.CategoryName"*@ />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="btn btn-info" value="Add" onclick="return addCategory()" />
+            </div>
+        </div>
+    </div>
+</div>
+

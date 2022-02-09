@@ -1,0 +1,41 @@
+﻿body {
+    background-image: linear-gradient(to left, #f9c5d1, #9795ef);
+}
+
+.container {
+    margin: 12em auto;
+    border-radius: 12px;
+}
+
+.custom-group {
+    width: 20em;
+    margin: .3em auto;
+}
+
+.form-control {
+    border-radius: 12px !important;
+    font-size: 1.4em;
+    background-color: whitesmoke !important;
+}
+
+
+.custom-btn {
+    margin: .3em;
+    background-color: whitesmoke !important;
+    border: 1px solid whitesmoke;
+    height: 2.5em;
+    width: 10em;
+    border-radius: 12px;
+    font-weight: 400;
+    font-size: 1.4em;
+}
+
+.error-label {
+    font-size: 1.4em;
+}
+
+.error-text {
+    text-align: center !important;
+    font-size: 2em;
+    color: red !important;
+}

@@ -1,0 +1,17 @@
+﻿.navbar{
+    justify-content:center;
+}
+
+
+.container{
+    margin-top:1em;
+}
+
+span{
+    font-weight:bold;
+}
+
+.navbar-brand:hover {
+    color: violet !important;
+    text-decoration: underline;
+}

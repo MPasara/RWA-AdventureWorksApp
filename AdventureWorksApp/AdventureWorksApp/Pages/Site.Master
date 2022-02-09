@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AdventureWorksApp.Pages.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+	<title></title>
+	<link href="../Content/bootstrap.css" rel="stylesheet" />
+	<link href="../Css/MasterPage.css" rel="stylesheet" />
+	<asp:ContentPlaceHolder ID="head" runat="server">
+	</asp:ContentPlaceHolder>
+</head>
+<body>
+	<form id="form1" runat="server">
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand" href="CustomersPage.aspx">Customers page</a>
+			<a class="navbar-brand" href="EditPage.aspx">Edit customers</a>
+			<%--<a class="navbar-brand" href="EditPage.aspx">Products</a>--%>
+            <asp:LinkButton ID="lbProducts" runat="server" OnCommand="lbProducts_Command">Products</asp:LinkButton>
+			<%--<a class="navbar-brand" href="EditPage.aspx">Categorites</a>--%>
+            <asp:LinkButton ID="lbCategories" runat="server" OnCommand="lbCategories_Command">Categorites</asp:LinkButton>
+			<%--<a class="navbar-brand" href="EditPage.aspx">Subcategories</a>--%>
+            <asp:LinkButton ID="lbSubcategories" runat="server" OnCommand="lbSubcategories_Command">Subcategories</asp:LinkButton>
+		</nav>
+		<div class="container">
+			<asp:ContentPlaceHolder ID="content" runat="server">
+			</asp:ContentPlaceHolder>
+		</div>
+	</form>
+	<footer>
+			<hr />
+			<p style="text-align:center;">&copy; AdventureWorks, <script>document.write(new Date().getFullYear()); </script></p>
+		</footer>
+</body>
+</html>

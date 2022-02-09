@@ -1,0 +1,34 @@
+﻿@model IEnumerable<AdventureWorksApp.Models.Bill>
+@{
+    ViewBag.Title = "History";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<h2>@ViewBag.customer.Ime @ViewBag.customer.Prezime</h2>
+
+
+<div class="container">
+    <table class="table table-striped table-hover" style="text-underline-position:right">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Number</td>
+                <td>Date issued</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var b in Model)
+            {
+                <tr>
+                    <td>@b.IDBill</td>
+                    <td>@b.BillNumber</td>
+                    <td>@b.Date</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
